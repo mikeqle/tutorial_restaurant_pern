@@ -142,3 +142,10 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/node
+
+
+# ================================================================== *
+# Added by mike for React
+.DS_*
+**/*.backup.*
+**/*.back.*
