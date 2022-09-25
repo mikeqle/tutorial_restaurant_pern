@@ -1,6 +1,10 @@
+const db = require('../db');
+
 module.exports ={
-    getAllRestaurants: (req, res) => {
+    getAllRestaurants: async (req, res) => {
         console.log("Getting All Restaurants");
+        const results = await db.query("SELECT * FROM restaurants;");
+        console.log(results);
         res.status(200).json({
             status: "success",
             data: {
