@@ -1,17 +1,15 @@
 require("dotenv").config();
 const express = require('express');
+const morgan = require("morgan");
 
 const app = express();
 
-// Routes
-// app.get("/getRestaurants", (req, res) => {
-//     console.log("Retrieving all restaurants");
-//     res.json({
-//         status: "success",
-//         restaurant: ["McDonalds", "Wendys"]
-//     })
-// })
+// Include Morgan middleware for logging request
+app.use(morgan("dev"));
 
+app.use(express.json());
+
+// Routes
 require('./routes/restaurants.routes')(app);
 
 
