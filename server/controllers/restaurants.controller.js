@@ -10,7 +10,7 @@ module.exports ={
                 status: "success",
                 results: results.rows.length,
                 data: {
-                    restaurant: results.rows
+                    restaurants: results.rows
                 }
             });    
         } catch (err) {
