@@ -4,7 +4,7 @@ module.exports ={
     getAllRestaurants: async (req, res) => {
         console.log("Getting All Restaurants");
         try {
-            const results = await db.query("SELECT * FROM restaurants;");
+            const results = await db.query("SELECT * FROM restaurants ORDER BY id;");
             // console.log(results);
             res.status(200).json({
                 status: "success",
