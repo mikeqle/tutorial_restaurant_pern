@@ -9,11 +9,13 @@ import { RestaurantsContext } from '../context/RestaurantsContext';
 const RestaurantDetailPage = () => {
     const {id} = useParams();
     const [selectedRestaurant, setSelectedRestaurant] = useState(null);
+
     useEffect(() => {
       const fetchData = async () => {
         try {
           const response = await RestaurantFinder.get(`/${id}`);
           setSelectedRestaurant(response.data.data);
+          console.log(selectedRestaurant);
         } catch (err) {
           console.log(err);
         };
@@ -25,6 +27,14 @@ const RestaurantDetailPage = () => {
     <div>{selectedRestaurant && (
       <>
         <h1 className="display-1 text-center">{selectedRestaurant.restaurant.name}</h1>
+        <div className="text-center">
+          <StarRating rating={selectedRestaurant.restaurant.avg_rating} />
+          <span className="text-warning ml-1">
+            { selectedRestaurant.restaurant.review_count
+            ? `(${selectedRestaurant.restaurant.review_count})`
+            : "(0)"}
+            </span>
+        </div>
         <div className="mt-3">
           <Reviews reviews={selectedRestaurant.reviews}/>
           <AddReview />
