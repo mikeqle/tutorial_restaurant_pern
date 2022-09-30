@@ -11,4 +11,6 @@ module.exports = (app) => {
 
     app.delete('/api/v1/restaurants/:id', RestaurantController.deleteRestaurant);
 
+    app.post('/api/v1/restaurants/:id/addReview', RestaurantController.addReview);
+
 };
