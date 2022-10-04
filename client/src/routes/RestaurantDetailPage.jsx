@@ -4,19 +4,16 @@ import RestaurantFinder from '../apis/RestaurantFinder';
 import AddReview from '../components/AddReview';
 import Reviews from '../components/Reviews';
 import StarRating from '../components/StarRating';
-import { RestaurantsContext } from '../context/RestaurantsContext';
 
 const RestaurantDetailPage = () => {
     const {id} = useParams();
     const [selectedRestaurant, setSelectedRestaurant] = useState(null);
 
     useEffect(() => {
-      console.log("useEffect is running.")
       const fetchData = async () => {
         try {
           const response = await RestaurantFinder.get(`/${id}`);
           setSelectedRestaurant(response.data.data);
-          console.log(selectedRestaurant);
         } catch (err) {
           console.log(err);
         };
@@ -25,7 +22,7 @@ const RestaurantDetailPage = () => {
       fetchData();
     }, []);
   return (
-    <div> Hi
+    <div>
       {selectedRestaurant && (
       <>
         <h1 className="display-1 text-center">{selectedRestaurant.restaurant.name}</h1>
