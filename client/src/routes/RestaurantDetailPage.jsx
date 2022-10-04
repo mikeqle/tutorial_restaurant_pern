@@ -11,6 +11,7 @@ const RestaurantDetailPage = () => {
     const [selectedRestaurant, setSelectedRestaurant] = useState(null);
 
     useEffect(() => {
+      console.log("useEffect is running.")
       const fetchData = async () => {
         try {
           const response = await RestaurantFinder.get(`/${id}`);
@@ -24,7 +25,8 @@ const RestaurantDetailPage = () => {
       fetchData();
     }, []);
   return (
-    <div>{selectedRestaurant && (
+    <div> Hi
+      {selectedRestaurant && (
       <>
         <h1 className="display-1 text-center">{selectedRestaurant.restaurant.name}</h1>
         <div className="text-center">
