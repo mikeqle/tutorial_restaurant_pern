@@ -149,6 +149,3 @@ dist
 .DS_*
 **/*.backup.*
 **/*.back.*
-
-# Ignore postgres database dump
-*.pgsql
