@@ -149,3 +149,5 @@ dist
 .DS_*
 **/*.backup.*
 **/*.back.*
+
+*.pgsql
